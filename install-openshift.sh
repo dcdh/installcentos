@@ -106,10 +106,10 @@ if [ $? -eq 1 ]; then
 fi
 
 # install the packages for Ansible
-yum -y --enablerepo=epel install pyOpenSSL
+yum -y --enablerepo=epel downgrade install pyOpenSSL
 
 curl -o ansible.rpm https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.5-1.el7.ans.noarch.rpm
-yum -y --enablerepo=epel install ansible.rpm
+yum -y --enablerepo=epel downgrade install ansible.rpm
 
 [ ! -d openshift-ansible ] && git clone https://github.com/openshift/openshift-ansible.git -b release-${VERSION} --depth=1
 
